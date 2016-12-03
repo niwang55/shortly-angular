@@ -4,15 +4,15 @@
     <ul>
       <li><a href='#/links' class='index'>All Links</a></li>
       <li><a href='#/shorten' class='create'>Shorten</a></li>
+      <li><a href='#/logout' class='logout'>Logout</a></li>
     </ul>
-    <a href='#/logout' class='logout'>Logout</a>
   </div>
 
   <form name="searchForm">
-    <input class='text' type='text' name='url' ng-model='newLink' />
+    <input class='text' type='text' name='url' placeholder='Search for a url' ng-model='newLink' />
   </form>
 
-  <div class='info' ng-repeat="link in data.links | filter:newLink | orderBy:'-visits'" ng-controller='LinksController' >
+  <div class='info link' ng-repeat="link in data.links | filter:newLink | orderBy:'-visits'" ng-controller='LinksController' >
       <img src='../assets/redirect_icon.png'/>
       <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
       <div class='title'>{{link.title}}</div>

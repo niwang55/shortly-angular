@@ -1,11 +1,11 @@
 <div id='signup' ng-controller='AuthController'>
   <h1>signup</h1>
   <form name="signupForm" ng-submit='signup()'>
-    <input name='user' type='text' ng-model='user.username' ng-minlength="6" required>
-    <input name='password' type="password" ng-model='user.password' ng-minlength="6" required>
-    <button ng-disabled="signupForm.user.$invalid || signupForm.password.$invalid">signup</button>
-    <p ng-show="signupForm.user.$invalid">Username must be longer than 6 characters</p>
-    <p ng-show="signupForm.password.$invalid">Password must be longer than 6 characters</p>
+    <input class="signUser" name='user' type='text' ng-model='user.username' ng-minlength="6" placeholder="Username" required>
+    <p class="userPrompt" ng-show="signupForm.user.$invalid">Username must be longer than 6 characters</p>
+    <input class="signPass" name='password' type="password" ng-model='user.password' ng-minlength="6" placeholder="Password" required>
+    <p class="passwordPrompt" ng-show="signupForm.password.$invalid">Password must be longer than 6 characters</p>
+    <button class="signUp" ng-disabled="signupForm.user.$invalid || signupForm.password.$invalid">signup</button>
   </form>
   <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
 </div>

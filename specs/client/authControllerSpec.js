@@ -64,4 +64,20 @@ describe('AuthController', function () {
     $httpBackend.flush();
     expect($window.localStorage.getItem('com.shortly')).to.equal(token);
   });
+
+  it('should delete token after logout', function () {
+    Auth.signout();
+    expect($window.localStorage.getItem('com.shortly')).to.equal(null);
+  });
+
+  it('should authenticate valid token', function () {
+    // create a fake JWT for auth
+    var token = 'sjj232hwjhr3urw90rof';
+
+    // make a 'fake' reques to the server, not really going to our server
+    $httpBackend.expectPOST('/api/users/signup').respond({token: token});
+    $scope.signup();
+    $httpBackend.flush();
+    expect(Auth.isAuth($window.localStorage.getItem('com.shortly'))).to.equal(true);
+  });
 });

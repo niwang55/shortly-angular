@@ -50,4 +50,6 @@ describe('LinksController', function () {
 
     expect($scope.data.links).to.deep.equal(mockLinks);
   });
+
+
 });
