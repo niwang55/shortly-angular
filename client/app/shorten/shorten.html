@@ -1,6 +1,23 @@
-<div id='container'>
-<!-- Your code here -->
+<div id='container' ng-app='shortly.shorten'>
+  <!-- Your code here -->
+  <div class='navigation'>
+    <ul>
+      <li><a href='#/links' class='index'>All Links</a></li>
+      <li><a href='#/shorten' class='create'>Shorten</a></li>
+    </ul>
+    <a href='#/logout' class='logout'>Logout</a>
+  </div>
+  <div id='container'></div>
 
+  <form name="linkForm" ng-controller='ShortenController'>
+    <input class='text' type='url' name='url' ng-model='newLink'>
+    <input type='submit' value='Shorten' ng-click='addLink(newLink)' ng-disabled="linkForm.url.$invalid">
+    <p ng-show="linkForm.url.$invalid">Please enter a valid url</p>
+  </form>
+  <!-- <img class='spinner' src='../assets/spiffygif_46x46.gif'> -->
+  <div class='message'></div>
 </div>
+
+
 
 
